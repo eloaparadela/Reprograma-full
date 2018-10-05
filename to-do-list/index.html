@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Projeto 2 - To do Lista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <header class="header">
+                <h1 class="header__title">Adicione uma nova tarefa</h1>
+            </header>
+            <div class="addTask">
+                <label for="inputTask">
+                    <input class="addTask__inputTask inputTask" title="Input Task" id="inputTask" type="text" placeholder="Digite a nova tarefa aqui">
+                </label>
+                <button type="button" class="addTask__button addButton">Add</button>
+            </div>
+            <ul class="toDoList">
+                <!-- <li class="toDoList__task">
+                    <h2 class="toDoList__taskName taskName">Tarefa 1</h2>
+                    <button class="toDoList__taskButton taskButton">x</button>
+                </li> -->
+            </ul>
+            <footer class="footer hiddenFooter">
+                <button class="footer__button checkAllTasks">Concluir tudo</button>
+                <button class="footer__button deleteAllTasks"></button>
+            </footer>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
