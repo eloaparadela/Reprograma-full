@@ -18,13 +18,18 @@ $("#btn").click(function(e){
 });
 
 function insere(){
- let divInserir= document.querySelector(".tuites");
- divInserir.innerHTML = `
+    $(".tuites").prepend(`
  <p id="pezinho">${$("#xuxu").val()}</p>
  `
+)
 
 }
-//.click / .val
+// let divInserir= document.querySelector(".tuites");
+//  divInserir.innerHTML = `
+//  <p id="pezinho">${$("#xuxu").val()}</p>
+//  `
+
+//.click / .val / prepend
 
 // btnSubmit.addEventListener("click", function(e){
 //     e.preventDefault();
