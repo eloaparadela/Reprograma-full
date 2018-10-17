@@ -24,7 +24,7 @@ function insere(){
  `
 
 }
-
+//.click / .val
 
 // btnSubmit.addEventListener("click", function(e){
 //     e.preventDefault();
