@@ -12,16 +12,17 @@
  $(document).ready(function(){
 
 
-$("#btn").click(function(event){
-        event.preventDefault();
-        appendinsere($("#xuxu").val());
-        contador();
-    });
+// $("#btn").click(function(event){
+//         event.preventDefault();
+//         appendinsere($("#xuxu").val());
+//         contador();
+//     });
 
     $("#btn").click(function(e){
         e.preventDefault();
         $("#xuxu").val();
         insere();
+        document.querySelector("#pudim").reset();
          
      });
      
