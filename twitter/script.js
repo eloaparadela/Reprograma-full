@@ -26,10 +26,12 @@
          
      });
      
-     function insere(){
+     function insere(){ // div de inserir tweet
          $(".tuites").prepend(`
-         <div class="p-3 mb-2 bg-light text-dark"><p class="text-warning" id="pezinho">${$("#xuxu").val()}</p> 
-         <p> ${Chamar()} </p></div>
+         <div class="p-3 mb-2 bg-light text-dark">
+         <p class="text-warning" id="pezinho">${$("#xuxu").val()}</p> 
+         <p> ${Chamar()} </p>
+         </div>
       `
 
      )
@@ -38,7 +40,22 @@
      
      function contador(){
           let Sobrando= 200 - $("#xuxu").val().length;
-          return $("#contador").text(`Você ainda tem ${Sobrando} caracteres`);
+          if(Sobrando < 0){ // mudar cor do texto de acordo com o n de caracteres
+              $("#xuxu").css("color", "red");
+              return $("#contador").text(`Você ultrapassou ${Sobrando} caracteres do limite`);
+          }
+          else{
+            if( Sobrando >= 0 && Sobrando <= 50){
+              $("#xuxu").css("color", "orange");
+          }
+            else if( Sobrando > 50 && Sobrando <=100){
+              $("#xuxu").css("color", "yellow");
+          }
+           else{
+                 $("#xuxu").css("color", "black");
+          }
+           return $("#contador").text(`Você ainda tem ${Sobrando} caracteres`);
+        }
      }
 
       $("#xuxu").keyup(function(){
@@ -46,7 +63,7 @@
       })
          
 
-      function Data(date){
+      function Data(date){ // add data no tweet
           const meses = ["jan", "feb", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
           let day = date.getDate();
           let year= date.getFullYear();
@@ -58,13 +75,13 @@
          return Data(new Date());
      }
 
-     function MudarCor(){
-         let Chamar= document.querySelector("#xuxu");
+    //  function MudarCor(){
+    //      let Chamar= document.querySelector("#xuxu");
 
-         if(Chamar.length.val() === 10){
-            document.getElementById("#xuxu").style.color = "red";
-         }
-     }
+    //      if(Chamar.length.val() === 10){
+    //         document.getElementById("#xuxu").style.color = "red";
+    //      }
+    //  }
 
 
  })
