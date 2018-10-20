@@ -1,6 +1,6 @@
 const button = document.querySelector(".transacao__button");
 
-button.addEventListener('click', function(event){
+button.addEventListener("click", function(event){
     event.preventDefault();
 
    
@@ -23,8 +23,8 @@ button.addEventListener('click', function(event){
     const nomedata= document.createTextNode(data.value);
     colunadata.appendChild(nomedata);
     linha.appendChild(colunanome);
-    linha.appendChild(colunadata);
     linha.appendChild(colunavalor);
+    linha.appendChild(colunadata);
 
     
     const tabela=document.querySelector(".extrato__table");
