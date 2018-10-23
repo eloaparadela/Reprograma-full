@@ -18,8 +18,7 @@ const fazerLogin= <a class='link' href='/login'>fazer login</a>
 
 const formularioLogin = (
   <form>
-  <a class='link' href='/conta'>Criar uma conta</a>
-  <a class='link' href='/login'>fazer login</a>
+    {[linkCriarUmaConta, fazerLogin]}
   </form>
 )
 
