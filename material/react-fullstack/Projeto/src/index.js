@@ -1,4 +1,8 @@
 //<a class = "link"  href="/conta"></a>
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+
 function Link(props){
   return(
     <a className ="link" href ={props.url}>
