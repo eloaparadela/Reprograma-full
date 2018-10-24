@@ -1,26 +1,10 @@
 //<a class = "link"  href="/conta"></a>
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Link from './componentes/Link/Link'
+import Botao from './componentes/Botao/Botao'
 import './index.css'
 
-function Link(props){
-  return(
-    <a className ="link" href ={props.url}>
-    {props.children}
-    </a>
-  )
-}
-
-function Botao(props){
-  let classes ="botao"
-  if(props.desabilitado === true){
-    classes +=" botao--desabilitado"
-  }
-  return(
-    <input className={classes} type="submit" value={props.children}/> 
-   
-  )
-}
 
 const paginaLogin = (
   <main className="pagina-login">
@@ -57,9 +41,7 @@ const divisaoProjeto =document.getElementById('projeto')
 //     {[linkCriarUmaConta, fazerLogin]}
 //   </form>
 // )
-
-// const divisaoProjeto =document.getElementById('projeto')
-
+//  const divisaoProjeto =document.getElementById('projeto')
  ReactDOM.render(paginaLogin, divisaoProjeto)
 
 
