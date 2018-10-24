@@ -8,8 +8,12 @@ function Link(props){
 }
 
 function Botao(props){
+  let classes ="botao"
+  if(props.desabilitado === true){
+    classes +=" botao--desabilitado"
+  }
   return(
-    <input className="botao" type="submit" value={props.children}/> 
+    <input className={classes} type="submit" value={props.children}/> 
    
   )
 }
@@ -20,7 +24,10 @@ const paginaLogin = (
   <p>Entre com seu login</p>
 
   <Link url="/conta"> Criar uma conta</Link>
+  <Link url="/login"> Fazer login</Link>
+  <Botao desabilitado>Enviar</Botao>
   <Botao>Enviar</Botao>
+  {/* <Botao className="botao-danger">Enviar</Botao> */}
   </main>
 )
 
