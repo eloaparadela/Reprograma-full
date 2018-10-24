@@ -1,5 +1,5 @@
 {
-  "name": "Reprograma Post-it",
+  "name": "reprograma-postit",
   "version": "1.0.0",
   "description": "Esse processo foi desenvolvido no curso do Reprograma-fullstack",
   "dependencies": {
@@ -10,5 +10,11 @@
   "devDependencies": {},
   "scripts": {
     "start": "react-scripts start"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
