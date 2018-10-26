@@ -11,7 +11,7 @@ return(
   <h1> Conta </h1>
   <p>Preencha o formulario</p>
   <Legenda htmlFor="nome">Nome</Legenda>
-  <Campo placeholder="Nome" name= "nome" id="nome" type="text"></Campo>
+  <Campo placeholder="Nome" name= "nome" id="nome" type="text" obrigatorio></Campo>
 
   <Legenda htmlFor="telefone">Telefone</Legenda>
   <Campo placeholder="(  ) Telefone" name="telefone" id="telefone" type="tel"></Campo>

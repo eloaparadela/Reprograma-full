@@ -7,17 +7,36 @@ constructor(props){
  this.state={
      erro:''
  }
+ 
+}
+
+valida = (evento) => {
+const alvo = evento.target
+
+if(this.props.obrigatorio &&  alvo.value.trim() === ''){
+    const state={
+        erro:'Campo obrigatório'
+    }
+
+ this.setState(state)
+}
 }
 
 render(){
     return (
+        <div>
         <input 
         className= "caixa-texto" 
         name={this.props.name} 
         placeholder={this.props.placeholder} 
         id={this.props.id} 
-        type={this.props.type}>
-      </input>
+        type={this.props.type}
+        onChange={this.valida}
+        />
+      
+
+      <p className="grupo__erro">{this.state.erro} </p>
+      </div>
       );
 }
 }
