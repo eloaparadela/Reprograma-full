@@ -16,11 +16,11 @@ return(
   <Legenda htmlFor="senha">Senha:</Legenda>
   <Campo placeholder="Senha" name="senha" id="senha" type="password"></Campo>
 
+  
+  {/* <Link url="/login"> Fazer login</Link> */}
+  <Botao desabilitado>Enviar</Botao>
+  {/* <Botao>Enviar</Botao> */}
   <Link url="/conta"> Criar uma conta</Link>
-  <Link url="/login"> Fazer login</Link>
-  {/* <Botao desabilitado>Enviar</Botao> */}
-  <Botao>Enviar</Botao>
-
 </main>
 )
 }

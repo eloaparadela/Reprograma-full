@@ -23,8 +23,8 @@ return(
   <Campo placeholder="Senha" name="senha" id="senha" type="password"></Campo>
 
   {/* <Link url="/conta"> Criar uma conta</Link> */}
-  {/* <Botao desabilitado>Enviar</Botao> */}
-  <Botao>Enviar</Botao>
+  <Botao desabilitado>Enviar</Botao>
+  {/* <Botao>Enviar</Botao> */}
   <Link url="/login"> Fazer login</Link>
 
 </main>
