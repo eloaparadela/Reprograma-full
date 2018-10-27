@@ -11,16 +11,16 @@ return(
   <h1> Conta </h1>
   <p>Preencha o formulario</p>
   <Legenda htmlFor="nome">Nome</Legenda>
-  <Campo placeholder="Nome" name= "nome" id="nome" type="text" obrigatorio></Campo>
+  <Campo placeholder="Nome" name= "nome" id="nome" type="text" required></Campo>
 
   <Legenda htmlFor="telefone">Telefone</Legenda>
-  <Campo placeholder="(  ) Telefone" name="telefone" id="telefone" type="tel"></Campo>
+  <Campo placeholder="(  ) Telefone" name="telefone" id="telefone" type="tel" required></Campo>
 
   <Legenda htmlFor="email">Email:</Legenda>
-  <Campo placeholder="Email" name= "email" id="email" type="email"></Campo>
+  <Campo placeholder="Email" name= "email" id="email" type="email" required minLength={10}></Campo>
 
   <Legenda htmlFor="senha">Senha:</Legenda>
-  <Campo placeholder="Senha" name="senha" id="senha" type="password"></Campo>
+  <Campo placeholder="Senha" name="senha" id="senha" type="password" required minLength={6}></Campo>
 
   {/* <Link url="/conta"> Criar uma conta</Link> */}
   <Botao desabilitado>Enviar</Botao>
