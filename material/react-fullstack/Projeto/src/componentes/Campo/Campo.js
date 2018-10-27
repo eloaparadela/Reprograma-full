@@ -87,6 +87,9 @@ class Campo extends React.Component {
     else if(this.props.minLength && alvo.value.length < this.props.minLength ){
       this.setState({erro: `Digite pelo menos ${this.props.minLength} caracteres`})
     }
+    else if(this.props.pattern && !this.props.pattern.test(alvo.value)){
+      this.setState({erro: 'Email invalido'})
+    }
     else{
       this.setState({erro:''})
     }

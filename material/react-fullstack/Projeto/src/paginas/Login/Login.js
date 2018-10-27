@@ -11,7 +11,7 @@ return(
   <h1> Login</h1>
   <p>Entre com seu login</p>
   <Legenda htmlFor="email">Email:</Legenda>
-  <Campo placeholder="Email" name= "email" id="email" type="email" required minLength={10}></Campo>
+  <Campo placeholder="Email" name= "email" id="email" type="email" required ></Campo>
 
   <Legenda htmlFor="senha">Senha:</Legenda>
   <Campo placeholder="Senha" name="senha" id="senha" type="password" required minLength={6}></Campo>
