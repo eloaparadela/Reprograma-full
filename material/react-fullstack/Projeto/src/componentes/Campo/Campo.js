@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './Campo.css'
 
 // class Campo extends React.Component{
@@ -69,7 +69,7 @@ import './Campo.css'
 
 
 
-class Campo extends React.Component {
+class Campo extends Component {
   constructor (props){ //dados da conta 
     super(props)
     this.state ={
@@ -79,20 +79,39 @@ class Campo extends React.Component {
   
   valida = evento =>{
     const alvo = evento.target
+    //const {value } = evento.target
 
+   
+   const {value, type} =alvo
+   const {required, minLength} =this.props
+   const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+   let mensagem =''
+   
 
-    if( this.props.required && alvo.value.trim()==='' ){
-      this.setState({erro: 'Campo obrigatorio'})
-    }
-    else if(this.props.minLength && alvo.value.length < this.props.minLength ){
-      this.setState({erro: `Digite pelo menos ${this.props.minLength} caracteres`})
-    }
-    else if(this.props.pattern && !this.props.pattern.test(alvo.value)){
-      this.setState({erro: 'Email invalido'})
-    }
-    else{
-      this.setState({erro:''})
-    }
+   if( required && value.trim()==='' ){
+    mensagem = 'Campo obrigatorio'
+  }
+  else if(minLength && value.length < minLength ){
+    mensagem= `Digite pelo menos ${minLength} caracteres`
+  }
+  else if(type && !regex.test(value)){
+    mensagem= 'Email invalido'
+  }
+  
+  this.setState({erro:mensagem})
+
+    // if( this.props.required && alvo.value.trim()==='' ){
+    //   this.setState({erro: 'Campo obrigatorio'})
+    // }
+    // else if(this.props.minLength && alvo.value.length < this.props.minLength ){
+    //   this.setState({erro: `Digite pelo menos ${this.props.minLength} caracteres`})
+    // }
+    // else if(this.props.pattern && !this.props.pattern.test(alvo.value)){
+    //   this.setState({erro: 'Email invalido'})
+    // }
+    // else{
+    //   this.setState({erro:''})
+    // }
 
   //   if(alvo.type ==='tel' && alvo.value.trim() ===''){
   //     const state={
@@ -128,6 +147,7 @@ class Campo extends React.Component {
       name={this.props.name}
       placeholder={this.props.placeholder}
       onChange={this.valida}
+      onBlur= {this.valida}
       />
 
       <p className="grupo__erro">{this.state.erro}</p>
