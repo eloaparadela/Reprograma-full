@@ -72,8 +72,12 @@ import './Campo.css'
 class Campo extends Component {
   constructor(props) { //dados da conta 
     super(props)
-    this.state = {
-     modificado:false, erro: '' }
+    this.valor= ''
+    this.state = {modificado:false, erro: ''}
+  }
+
+  getValor(){
+    return this.valor;
   }
 
   temErro() {
@@ -90,7 +94,7 @@ class Campo extends Component {
     const alvo = evento.target
     //const {value } = evento.target
 
-
+  this.valor =value 
     const { value, type } = alvo
     const { required, minLength } = this.props
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -109,7 +113,7 @@ class Campo extends Component {
 
     this.setState(
       {modificado:true , erro: mensagem },this.props.onChange)
-
+      this.valor=value
     
   }
 
