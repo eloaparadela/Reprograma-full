@@ -9,6 +9,7 @@ import './index.css'
 import Login from './paginas/Login/Login';
 import Conta from './paginas/Conta/Conta';
 import Home from './paginas/Home/Home';
+import NavBar from './componentes/NavBar/NavBar'
 
 
 let usuario = JSON.parse(localStorage.getItem('usuario'))
@@ -19,11 +20,16 @@ function logaUsuario(dados) {
     usuario = dados
 }
 
+function deslogaUsuario(){
+    localStorage.removeItem('usuario')
+    usuario= null
+}
+
 
 function App() {
     return (
         <div className="app">
-            {/*HTML*/}
+            <NavBar usuario={usuario} deslogaUsuario={deslogaUsuario} />
 
             <Switch>
                 <Route path="/" exact render={() => {
