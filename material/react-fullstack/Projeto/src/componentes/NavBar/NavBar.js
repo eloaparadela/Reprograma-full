@@ -2,14 +2,14 @@ import React from 'react'
 import Menu from '../Menu/Menu'
 import './NavBar.css'
 import logo from './logo.png'
-
+import {Link} from 'react-router-dom'
 function Navbar(props){
 return(
 <header className ="navbar">
- <a href="/">
+ <Link to="/">
  <img className="navbar__logo" src={logo} alt="Logo" />
 
- </a>
+ </Link>
  <Menu usuario={props.usuario} deslogaUsuario={props.deslogaUsuario}/>
 </header>
 )
