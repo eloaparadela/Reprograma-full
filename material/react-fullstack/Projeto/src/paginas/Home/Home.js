@@ -17,14 +17,7 @@ function Home(props){
     </main>
     )
     }
-    function passaDadossDoEstadoNoProps(state){
-       return {
-           usuario: state.usuario
-       }
-    }
-    
-   const conectaNaStore  = connect(passaDadossDoEstadoNoProps)
-   const HomeConectado = conectaNaStore(Home)
     
    
-   export default HomeConectado
+   export default connect((state) =>(
+    { usuario: state.usuario }))(Home)

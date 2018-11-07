@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {logaUsuario} from '../../redux/action'
 import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
 import Legenda from '../../componentes/Legenda/Legenda'
@@ -75,50 +76,9 @@ class Login extends Component {
     }
 }
 
-// function passaDados(state) {
-//     const props = {
-//         usuario: state.usuario
-//     }
-//     return props
-// }
-function passaNoProps(dispatch) {
-    return {
-        logaUsuario: (dados) => {
-            const acao = {
-                type: 'LOGA_USUARIO',
-                dados:dados
-            }
-            dispatch(acao)
-        }
-    }
-}
-
-const conecta = connect(
+const LoginConectado = connect(
     null,
-    passaNoProps
-)
-
-const LoginConectado = conecta(Login)
-
-
-// function Login() {
-// return(
-// <main className="login">
-//   <h1> Login</h1>
-//   <p>Entre com seu login</p>
-//   <Legenda htmlFor="email">Email:</Legenda>
-//   <Campo placeholder="Email" name= "email" id="email" type="email" required ></Campo>
-
-//   <Legenda htmlFor="senha">Senha:</Legenda>
-//   <Campo placeholder="Senha" name="senha" id="senha" type="password" required minLength={6}></Campo>
-
-
-//   {/* <Link url="/login"> Fazer login</Link> */}
-//   <Botao desabilitado>Enviar</Botao>
-//   {/* <Botao>Enviar</Botao> */}
-//   <Link url="/conta"> Criar uma conta</Link>
-// </main>
-// )
-// }
+    {logaUsuario}
+)(Login)
 
 export default LoginConectado
