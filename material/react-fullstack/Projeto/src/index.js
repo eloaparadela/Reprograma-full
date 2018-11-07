@@ -1,8 +1,8 @@
 //<a class = "link"  href="/conta"></a>
 import React from 'react'
-import {Provider, connect } from 'react-redux'
+import {Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
-import { withRouter, BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import QuemSomos from './paginas/QuemSomos/QuemSomos'
 import Contato from './paginas/Contato/Contato'
 import NaoEncontrada from './paginas/NaoEncontrada/NaoEncontrada'
@@ -28,19 +28,20 @@ import NavBar from './componentes/NavBar/NavBar'
 // }
 
 
-function App(props) {
-    const usuario =props.usuario
-    const deslogaUsuario =props.deslogaUsuario
-    const logaUsuario= props.logaUsuario
+function App() {
+    // const usuario =props.usuario
+    // const deslogaUsuario =props.deslogaUsuario
+    // const logaUsuario= props.logaUsuario
 
     return (
         <div className="app">
             <NavBar />
 
             <Switch>
-                <Route path="/" exact render={() => {
+                <Route path="/" exact component={Home} />
+                {/* render={() => {
                     return usuario ? <Home /> : <Redirect to="/login" />
-                }} />
+                }} /> function (rendr) */}
                 <Route path="/conta" component={Conta} />
                 <Route path="/login" component={Login} />
                 <Route path="/quem-somos" component={QuemSomos} />
@@ -52,44 +53,44 @@ function App(props) {
     )
 }
 
-function passaDadosDoEstadoParaMeuComponente(state) {
-    const props = {
-        usuario: state.usuario
-    }
-    return props
-}
+// function passaDadosDoEstadoParaMeuComponente(state) {
+//     const props = {
+//         usuario: state.usuario
+//     }
+//     return props
+// }
 
 
-function passaFuncoesQueDisparamAcoesViaProps(dispatch) {
-    const props ={
-       logaUsuario:( dados) => {
-           const acao = {
-               type: 'LOGA_USUARIO',
-               dados:dados
-           }
+// function passaFuncoesQueDisparamAcoesViaProps(dispatch) {
+//     const props ={
+//        logaUsuario:( dados) => {
+//            const acao = {
+//                type: 'LOGA_USUARIO',
+//                dados:dados
+//            }
 
-           dispatch(acao)
-       },
-       deslogaUsuario: () => {
-           const acao = {
-              type: 'DESLOGA_USUARIO'
-           }
-           dispatch(acao)
-       }
-    }
-    return props
-}
+//            dispatch(acao)
+//        },
+//        deslogaUsuario: () => {
+//            const acao = {
+//               type: 'DESLOGA_USUARIO'
+//            }
+//            dispatch(acao)
+//        }
+//     }
+//     return props
+// }
 
 
-const conectaNaStore = connect(passaDadosDoEstadoParaMeuComponente, passaFuncoesQueDisparamAcoesViaProps)
+// const conectaNaStore = connect(passaDadosDoEstadoParaMeuComponente, passaFuncoesQueDisparamAcoesViaProps)
 // conectaNaStore(App)
 
-const AppConectada = withRouter (conectaNaStore(App))
+// const AppConectada = withRouter (conectaNaStore(App))
 
 ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
-        <AppConectada/>
+        <App/>
     </BrowserRouter>
    </Provider>,
     document.getElementById('projeto'));

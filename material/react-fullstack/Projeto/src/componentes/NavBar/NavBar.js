@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import Menu from '../Menu/Menu'
 import './NavBar.css'
 import logo from './logo.png'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 function Navbar(props) {
     return (
         <header className="navbar">
             <Link to="/">
                 <img className="navbar__logo" src={logo} alt="Logo" />
-
+                 
             </Link>
             <Menu usuario={props.usuario} deslogaUsuario={props.deslogaUsuario} />
         </header>
@@ -42,4 +42,4 @@ const conectaNaStore = connect(
 
 const NavBarConectado = conectaNaStore(Navbar)
 
-export default NavBarConectado
+export default withRouter(NavBarConectado)

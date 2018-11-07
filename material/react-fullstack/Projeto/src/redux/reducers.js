@@ -1,35 +1,46 @@
 import { combineReducers } from 'redux'
 
+let usuarioInicial = null
 
-const usuarioInicial =null
-function usuario(usuarioAtual = usuarioInicial, action){
-  switch(action.type){
+const json = localStorage.getItem('usuario')
+if (json) {
+  usuarioInicial = JSON.parse(json)
+}
+
+function usuario(usuarioAtual = usuarioInicial, action) {
+  switch (action.type) {
     case 'LOGA_USUARIO':
-       const usuarioLogado = action.dados
-       return usuarioLogado
+      const usuarioLogado = action.dados
+
+      const json = JSON.stringify(usuarioLogado)
+      localStorage.setItem('usuario', json)
+
+      return usuarioLogado
 
     case 'DESLOGA_USUARIO':
-      const usuarioDeslogado =null
+
+      localStorage.removeItem('usuario')
+      const usuarioDeslogado = null
       return usuarioDeslogado
 
     default:
-    return usuarioAtual     
+      return usuarioAtual
 
   }
 }
 
 
-function postits (state =[], action){
-  switch(action.type){
-   default:
-   return state
+function postits(state = [], action) {
+  switch (action.type) {
+    default:
+      return state
   }
 }
 
 
 const reducers = combineReducers({
-   usuario: usuario,
-   postits: postits
+  usuario: usuario,
+  postits: postits
 })
 
 export default reducers 

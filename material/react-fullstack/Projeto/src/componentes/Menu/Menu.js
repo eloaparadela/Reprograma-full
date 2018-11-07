@@ -6,13 +6,12 @@ import './Menu.css'
 class Menu extends Component {
   constructor(props) {
     super(props)
-    this.valor = ''
     this.state = { aberto: false }
   }
 
-  abreOuFechaMenu = (evento) => {
+  abreOuFechaMenu = () => {
     if (this.state.aberto) {
-      this.setState({ àberto: false })
+      this.setState({ aberto: false })
     } else {
       this.setState({ aberto: true })
     }
@@ -34,7 +33,7 @@ class Menu extends Component {
 
     return (
       <nav className="navbar-menu">
-        <a className={classesDoBotao} onClick={this.abreOuFechaMenu}>Menu </a>
+        <button className={classesDoBotao} onClick={this.abreOuFechaMenu}>Menu </button>
 
         <ul className={classesDasOpcoes}>
           <li>
