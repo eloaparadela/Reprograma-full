@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
 import Legenda from '../../componentes/Legenda/Legenda'
 import Campo from '../../componentes/Campo/Campo'
 import './Login.css'
-
-
-
 
 
 class Login extends Component {
@@ -26,9 +24,9 @@ class Login extends Component {
               email: campoEmail.getValor(),
               senha: campoSenha.getValor()
           }
-          this.props.onEnviar(dados)
+          this.props.logaUsuario(dados)
 
-          this.props.historico.push('/')
+          this.props.history.push('/')
       }
 
       habilitaOuDesabilita = () =>{
@@ -77,6 +75,32 @@ class Login extends Component {
     }
 }
 
+// function passaDados(state) {
+//     const props = {
+//         usuario: state.usuario
+//     }
+//     return props
+// }
+function passaNoProps(dispatch) {
+    return {
+        logaUsuario: (dados) => {
+            const acao = {
+                type: 'LOGA_USUARIO',
+                dados:dados
+            }
+            dispatch(acao)
+        }
+    }
+}
+
+const conecta = connect(
+    null,
+    passaNoProps
+)
+
+const LoginConectado = conecta(Login)
+
+
 // function Login() {
 // return(
 // <main className="login">
@@ -97,4 +121,4 @@ class Login extends Component {
 // )
 // }
 
-export default Login
+export default LoginConectado

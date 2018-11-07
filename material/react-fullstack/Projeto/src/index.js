@@ -32,18 +32,17 @@ function App(props) {
     const usuario =props.usuario
     const deslogaUsuario =props.deslogaUsuario
     const logaUsuario= props.logaUsuario
+
     return (
         <div className="app">
-            <NavBar usuario={usuario} deslogaUsuario={deslogaUsuario} />
+            <NavBar />
 
             <Switch>
                 <Route path="/" exact render={() => {
                     return usuario ? <Home /> : <Redirect to="/login" />
                 }} />
                 <Route path="/conta" component={Conta} />
-                <Route path="/login" render={(props) => {
-                    return <Login historico={props.history} onEnviar={logaUsuario} />
-                }} />
+                <Route path="/login" component={Login} />
                 <Route path="/quem-somos" component={QuemSomos} />
                 <Route path="/Contato" component={Contato} />
                 <Route path="/Home" component={Home} />
