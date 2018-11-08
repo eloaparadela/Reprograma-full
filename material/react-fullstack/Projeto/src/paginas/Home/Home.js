@@ -12,13 +12,13 @@ class Home extends Component {
     }
 
     render(){
-      if(!props.usuario){
+      if(!this.props.usuario){
         return <Redirect to="/login"/>
       }
       return(
         <main className ="home"> 
            {this.state.carregando ? (
-              <img src ={carregando} alt="Carregando"/>
+              <img className= "home__loading" src ={carregando} alt="Carregando"/>
            ) : (
              <div> 
                Listar os postits
