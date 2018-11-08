@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {deslogaUsuario} from '../../redux/action'
+import { deslogaUsuario } from '../../redux/action'
 import Menu from '../Menu/Menu'
 import './NavBar.css'
 import logo from './logo.png'
@@ -11,7 +11,7 @@ function Navbar(props) {
         <header className="navbar">
             <Link to="/">
                 <img className="navbar__logo" src={logo} alt="Logo" />
-                 
+
             </Link>
             <Menu usuario={props.usuario} deslogaUsuario={props.deslogaUsuario} />
         </header>
@@ -36,5 +36,5 @@ function Navbar(props) {
 
 export default withRouter(connect(
     (state) => ({ usuario: state.usuario }),
-   {deslogaUsuario}
+    { deslogaUsuario }
 )(Navbar))

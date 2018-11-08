@@ -9,6 +9,6 @@ export function logaUsuario(dados) {
 
 export function deslogaUsuario() {
     return {
-            type: 'DESLOGA_USUARIO'
-            }
+        type: 'DESLOGA_USUARIO'
+    }
 }
