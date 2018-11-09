@@ -38,3 +38,4 @@ export default withRouter(connect(
     (state) => ({ usuario: state.usuario }),
     { deslogaUsuario }
 )(Navbar))
+
